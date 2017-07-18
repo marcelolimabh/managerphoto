@@ -7,7 +7,7 @@ var appRoutes = [
     { path: '', component: listagem_component_1.ListagemComponent },
     { path: 'cadastro', component: cadastro_component_1.CadastroComponent },
     { path: 'listagem', component: listagem_component_1.ListagemComponent },
-    { path: '**', redirectTo: ''}
+    { path: '**', component: listagem_component_1.ListagemComponent }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);
 //# sourceMappingURL=app.routes.js.map
