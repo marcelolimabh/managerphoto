@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 
 @Component({
@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
     templateUrl: './foto.component.html'
 })
 export class FotoComponent{
+
+    @Input() url;
+    @Input() titulo;
 
 }
