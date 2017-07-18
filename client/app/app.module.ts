@@ -8,9 +8,17 @@ import { PainelModule } from './painel/painel.module';
 import { HttpModule } from '@angular/http'
 import 'rxjs/add/operator/map';
 
+
+import { CadastroComponent }   from './cadastro/cadastro.component'; 
+import { ListagemComponent }   from './listagem/listagem.component'; 
+
+import { routing } from './app.routes';
+
+
+
 @NgModule({
-  imports:      [ BrowserModule, FotoModule, HttpModule, PainelModule ],
-  declarations: [ AppComponent ],
+  imports:      [ BrowserModule, FotoModule, HttpModule, PainelModule, routing ],
+  declarations: [ AppComponent, CadastroComponent, ListagemComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
