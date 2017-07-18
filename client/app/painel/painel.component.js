@@ -10,27 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
-var AppComponent = (function () {
-    function AppComponent(http) {
-        var _this = this;
-        this.fotos = [];
-        http.get('v1/fotos')
-            .map(function (res) { return res.json(); })
-            .subscribe(function (fotos) {
-            _this.fotos = fotos;
-            console.log(_this.fotos);
-        });
+var PainelComponent = (function () {
+    function PainelComponent() {
     }
-    AppComponent = __decorate([
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], PainelComponent.prototype, "titulo", void 0);
+    PainelComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'app',
-            templateUrl: './app.component.html'
-        }),
-        __metadata("design:paramtypes", [http_1.Http])
-    ], AppComponent);
-    return AppComponent;
+            selector: 'painel',
+            templateUrl: './painel.component.html'
+        })
+    ], PainelComponent);
+    return PainelComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.PainelComponent = PainelComponent;
+//# sourceMappingURL=painel.component.js.map
