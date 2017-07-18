@@ -1,2 +1,2 @@
 # managerphoto
-Manager photos used Angular 2 and Nodejs
+Manager photos using Angular 2 and Nodejs
