@@ -18,8 +18,10 @@ export class CadastroComponent {
 
     constructor(http: Http, fb: FormBuilder) {
         this.http = http;
-        this.meuForm = fb.group({
-            titulo: ['', Validators.required],
+       this.meuForm = fb.group({
+            titulo: ['', Validators.compose(
+                [Validators.required, Validators.minLength(4)]
+            )],
             url: ['', Validators.required],
             descricao: [''],
         });
