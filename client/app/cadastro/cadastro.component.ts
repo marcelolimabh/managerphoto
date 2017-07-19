@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core'
 import { FotoComponent } from '../foto/foto.component'
 
-import { Http, Headers } from '@angular/http'; 
+import { Http, Headers } from '@angular/http';
+
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
     moduleId: module.id,
@@ -12,31 +14,37 @@ export class CadastroComponent {
 
     foto: FotoComponent = new FotoComponent();
     http: Http;
+    meuForm: FormGroup;
 
-    constructor(http: Http){
+    constructor(http: Http, fb: FormBuilder) {
         this.http = http;
+        this.meuForm = fb.group({
+            titulo: ['', Validators.required],
+            url: ['', Validators.required],
+            descricao: [''],
+        });
     }
 
     cadastrar() {
 
 
         event.preventDefault();
-        
+
         console.log(this.foto);
 
-         // cria uma instância de Headers
+        // cria uma instância de Headers
         let headers = new Headers();
         // Adiciona o tipo de conteúdo application/json 
         headers.append('Content-Type', 'application/json');
 
         this.http.post('v1/fotos', JSON.stringify(this.foto), { headers: headers })
-        .subscribe(() => {
-            this.foto = new FotoComponent();
-            console.log('Foto salva com sucessso!');
+            .subscribe(() => {
+                this.foto = new FotoComponent();
+                console.log('Foto salva com sucessso!');
 
 
 
-        }, erro => console.log(erro));
+            }, erro => console.log(erro));
     }
 
 }
