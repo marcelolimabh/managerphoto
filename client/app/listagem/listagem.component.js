@@ -17,6 +17,10 @@ var ListagemComponent = (function () {
         this.fotos = [];
         service.lista().subscribe(function (fotos) { return _this.fotos = fotos; }, function (error) { return console.log(error); });
     }
+    ListagemComponent.prototype.remove = function (foto) {
+        console.log('chamou metodo remove');
+        console.log(foto);
+    };
     ListagemComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

@@ -19,6 +19,11 @@ export class ListagemComponent{
         
     }
 
+    remove(foto){
+        console.log('chamou metodo remove');
+        console.log(foto);
+    }
+
 
 
 }
