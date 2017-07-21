@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FotoService} from '../foto/foto.service';
+import { FotoService } from '../foto/foto.service';
 import { FotoComponent } from '../foto/foto.component';
 
 
@@ -8,20 +8,23 @@ import { FotoComponent } from '../foto/foto.component';
     selector: 'listagem',
     templateUrl: './listagem.component.html'
 })
-export class ListagemComponent{
+export class ListagemComponent {
 
     fotos: FotoComponent[] = [];
+    service: FotoService;
 
     constructor(service: FotoService) {
-        
-        service.lista().subscribe(fotos => this.fotos = fotos, error => console.log(error));
-        
-        
+
+        this.service = service;
+        this.service.lista().subscribe(fotos => this.fotos = fotos, error => console.log(error));
+
+
     }
 
-    remove(foto){
-        console.log('chamou metodo remove');
-        console.log(foto);
+    remove(foto) {
+        console.log('Vai chamar o servico');
+        this.service.remove(foto)
+            .subscribe(() => console.log('Foto removida com sucesso'), erro => console.log(erro));
     }
 
 

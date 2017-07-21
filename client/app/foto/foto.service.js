@@ -24,6 +24,10 @@ var FotoService = (function () {
     FotoService.prototype.cadastra = function (foto) {
         return this.http.post(this.url, JSON.stringify(foto), { headers: this.headers });
     };
+    FotoService.prototype.remove = function (foto) {
+        console.log('chamou o servico. ');
+        return this.http.delete(this.url + '/' + foto._id);
+    };
     FotoService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])

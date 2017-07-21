@@ -15,11 +15,13 @@ var ListagemComponent = (function () {
     function ListagemComponent(service) {
         var _this = this;
         this.fotos = [];
-        service.lista().subscribe(function (fotos) { return _this.fotos = fotos; }, function (error) { return console.log(error); });
+        this.service = service;
+        this.service.lista().subscribe(function (fotos) { return _this.fotos = fotos; }, function (error) { return console.log(error); });
     }
     ListagemComponent.prototype.remove = function (foto) {
-        console.log('chamou metodo remove');
-        console.log(foto);
+        console.log('Vai chamar o servico');
+        this.service.remove(foto)
+            .subscribe(function () { return console.log('Foto removida com sucesso'); }, function (erro) { return console.log(erro); });
     };
     ListagemComponent = __decorate([
         core_1.Component({
