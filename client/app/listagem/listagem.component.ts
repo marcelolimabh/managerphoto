@@ -13,6 +13,8 @@ export class ListagemComponent {
     fotos: FotoComponent[] = [];
     service: FotoService;
 
+    mensagem: string = '';
+
     constructor(service: FotoService) {
 
         this.service = service;
@@ -24,7 +26,23 @@ export class ListagemComponent {
     remove(foto) {
         console.log('Vai chamar o servico');
         this.service.remove(foto)
-            .subscribe(() => console.log('Foto removida com sucesso'), erro => console.log(erro));
+            .subscribe(() =>
+            { 
+            console.log('Foto removida com sucesso');
+            //Clona o array
+            let fotosAtualizadas = this.fotos.slice(0)
+            //Recupera a posicao da foto no array
+            let indice = fotosAtualizadas.indexOf(foto);
+            //Exclui a foto do array
+            fotosAtualizadas.splice(indice,1);
+            //Atualiza a lista de fotos do componente, essa é a forma como o Angular2 executa o processo de change detection.
+            this.fotos = fotosAtualizadas;
+            //Atuliza a mensagem
+            this.mensagem = "Foto removida com sucesso!";
+        }, erro => {
+            console.log(erro);
+            this.mensagem = "Não foi possivel excluir a foto";
+        });
     }
 
 
