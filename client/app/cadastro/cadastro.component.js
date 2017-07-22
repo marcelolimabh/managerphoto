@@ -15,7 +15,7 @@ var foto_service_1 = require("../foto/foto.service");
 var router_1 = require("@angular/router");
 var forms_1 = require("@angular/forms");
 var CadastroComponent = (function () {
-    function CadastroComponent(service, fb, route) {
+    function CadastroComponent(service, fb, route, router) {
         var _this = this;
         this.foto = new foto_component_1.FotoComponent();
         this.mensagem = '';
@@ -51,6 +51,7 @@ var CadastroComponent = (function () {
             _this.foto = new foto_component_1.FotoComponent();
             console.log('Foto salva com sucessso!');
             _this.mensagem = 'Foto salva com sucesso!';
+            // this.router.navigate(['']);
         }, function (erro) { return console.log(erro); });
     };
     CadastroComponent = __decorate([
@@ -59,7 +60,7 @@ var CadastroComponent = (function () {
             selector: 'cadastro',
             templateUrl: './cadastro.component.html'
         }),
-        __metadata("design:paramtypes", [foto_service_1.FotoService, forms_1.FormBuilder, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [foto_service_1.FotoService, forms_1.FormBuilder, router_1.ActivatedRoute, router_1.Router])
     ], CadastroComponent);
     return CadastroComponent;
 }());

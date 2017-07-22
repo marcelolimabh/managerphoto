@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core'
 import { FotoComponent } from '../foto/foto.component'
 import { FotoService } from '../foto/foto.service'
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute , Router} from '@angular/router';
 
 
 
@@ -26,7 +26,9 @@ export class CadastroComponent {
 
     isMsgError = false;
 
-    constructor(service: FotoService, fb: FormBuilder, route: ActivatedRoute) {
+    router: Router;
+
+    constructor(service: FotoService, fb: FormBuilder, route: ActivatedRoute, router: Router) {
         this.service = service;
       
         this.route = route;
@@ -71,8 +73,7 @@ export class CadastroComponent {
                 this.foto = new FotoComponent();
                 console.log('Foto salva com sucessso!');
                 this.mensagem = 'Foto salva com sucesso!';
-
-
+               // this.router.navigate(['']);
 
             }, erro => console.log(erro));
     }
