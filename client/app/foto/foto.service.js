@@ -22,11 +22,19 @@ var FotoService = (function () {
         return this.http.get(this.url).map(function (res) { return res.json(); });
     };
     FotoService.prototype.cadastra = function (foto) {
-        return this.http.post(this.url, JSON.stringify(foto), { headers: this.headers });
+        if (foto._id) {
+            return this.http.put(this.url + '/' + foto._id, JSON.stringify(foto), { headers: this.headers });
+        }
+        else {
+            return this.http.post(this.url, JSON.stringify(foto), { headers: this.headers });
+        }
     };
     FotoService.prototype.remove = function (foto) {
         console.log('chamou o servico. ');
         return this.http.delete(this.url + '/' + foto._id);
+    };
+    FotoService.prototype.buscaFotoPorId = function (id) {
+        return this.http.get(this.url + '/' + id).map(function (res) { return res.json(); });
     };
     FotoService = __decorate([
         core_1.Injectable(),

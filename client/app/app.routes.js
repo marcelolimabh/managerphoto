@@ -6,6 +6,7 @@ var listagem_component_1 = require("./listagem/listagem.component");
 var appRoutes = [
     { path: '', component: listagem_component_1.ListagemComponent },
     { path: 'cadastro', component: cadastro_component_1.CadastroComponent },
+    { path: 'cadastro/:id', component: cadastro_component_1.CadastroComponent },
     { path: 'listagem', component: listagem_component_1.ListagemComponent },
     { path: '**', component: listagem_component_1.ListagemComponent }
 ];
