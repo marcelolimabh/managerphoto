@@ -13,7 +13,7 @@
                             Nova foto
                         </a>
                     </span>
-                    <input  class="form-control"  #textoProcurado (keyup)="0"   placeholder="filtrar pelo título da foto">
+                    <input class="form-control" #textoProcurado (keyup)="0" placeholder="filtrar pelo título da foto">
 
                 </div>
             </form>
@@ -25,11 +25,14 @@
 
     <div class="row">
         <painel *ngFor="let foto of fotos | filtroPorTitulo: textoProcurado.value" titulo="{{foto.titulo | uppercase}}" class="col-md-2">
-            <a [routerLink]= "['/cadastro', foto._id]">
-            <foto titulo="{{foto.titulo}}" url="{{foto.url}}">
-            </foto>
+            <a [routerLink]="['/cadastro', foto._id]">
+                <foto titulo="{{foto.titulo}}" url="{{foto.url}}">
+                </foto>
             </a>
-            <button class="btn btn-danger btn-block" (click)="remove(foto)">Excluir</button>
+            <botao nome="Remover" estilo="btn-danger btn-block" (acao)="remove(foto)">
+            </botao>
+            <!--
+            <button class="btn btn-danger btn-block" (click)="remove(foto)">Excluir</button>-->
         </painel>
     </div>
     <!-- fim row -->

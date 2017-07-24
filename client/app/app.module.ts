@@ -11,8 +11,8 @@ import 'rxjs/add/operator/map';
 
 import { CadastroComponent }   from './cadastro/cadastro.component'; 
 import { ListagemComponent }   from './listagem/listagem.component'; 
-import { BotaoComponent }   from './botao/botao.component'; 
 
+import { BotaoModule } from './botao/botao.module';
 
 import { routing } from './app.routes';
 
@@ -28,7 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
                   HttpModule, 
                   PainelModule, 
                   routing, 
-                  FormsModule, ReactiveFormsModule, BotaoComponent ],
+                  FormsModule, ReactiveFormsModule, BotaoModule ],
   declarations: [ AppComponent, CadastroComponent, ListagemComponent ],
   bootstrap:    [ AppComponent ]
 })
