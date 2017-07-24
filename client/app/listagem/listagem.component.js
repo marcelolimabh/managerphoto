@@ -19,22 +19,24 @@ var ListagemComponent = (function () {
         this.service = service;
         this.service.lista().subscribe(function (fotos) { return _this.fotos = fotos; }, function (error) { return console.log(error); });
     }
-    ListagemComponent.prototype.remove = function (foto) {
+    ListagemComponent.prototype.remove = function (foto, painel) {
         var _this = this;
         console.log('Vai chamar o servico');
         this.service.remove(foto)
             .subscribe(function () {
-            console.log('Foto removida com sucesso');
-            //Clona o array
-            var fotosAtualizadas = _this.fotos.slice(0);
-            //Recupera a posicao da foto no array
-            var indice = fotosAtualizadas.indexOf(foto);
-            //Exclui a foto do array
-            fotosAtualizadas.splice(indice, 1);
-            //Atualiza a lista de fotos do componente, essa é a forma como o Angular2 executa o processo de change detection.
-            _this.fotos = fotosAtualizadas;
-            //Atuliza a mensagem
-            _this.mensagem = "Foto removida com sucesso!";
+            painel.fadeOut(function () {
+                console.log('Foto removida com sucesso');
+                //Clona o array
+                var fotosAtualizadas = _this.fotos.slice(0);
+                //Recupera a posicao da foto no array
+                var indice = fotosAtualizadas.indexOf(foto);
+                //Exclui a foto do array
+                fotosAtualizadas.splice(indice, 1);
+                //Atualiza a lista de fotos do componente, essa é a forma como o Angular2 executa o processo de change detection.
+                _this.fotos = fotosAtualizadas;
+                //Atuliza a mensagem
+                _this.mensagem = "Foto removida com sucesso!";
+            });
         }, function (erro) {
             console.log(erro);
             _this.mensagem = "Não foi possivel excluir a foto";
