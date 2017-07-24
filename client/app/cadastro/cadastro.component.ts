@@ -30,6 +30,7 @@ export class CadastroComponent {
 
     constructor(service: FotoService, fb: FormBuilder, route: ActivatedRoute, router: Router) {
         this.service = service;
+        this.router = router;
       
         this.route = route;
         this.route.params.subscribe(params => {
@@ -73,11 +74,12 @@ export class CadastroComponent {
                  this.mensagem = res.mensagem;
                 this.foto = new FotoComponent();
                 console.log('Foto salva com sucessso!');
-                if(!res.inclusao) this.router.navigate(['']);
+                if(!res.inclusao) 
+                    this.router.navigate(['']);
               
             }, erro => {
                 console.log(erro);
-                this.mensagem = 'Erro ao cadastrar uma foto!'
+                this.mensagem = 'Erro ao salvar uma foto!'
              })
     }
 

@@ -21,6 +21,7 @@ var CadastroComponent = (function () {
         this.mensagem = '';
         this.isMsgError = false;
         this.service = service;
+        this.router = router;
         this.route = route;
         this.route.params.subscribe(function (params) {
             var id = params['id'];
@@ -55,7 +56,7 @@ var CadastroComponent = (function () {
                 _this.router.navigate(['']);
         }, function (erro) {
             console.log(erro);
-            _this.mensagem = 'Erro ao cadastrar uma foto!';
+            _this.mensagem = 'Erro ao salvar uma foto!';
         });
     };
     CadastroComponent = __decorate([
