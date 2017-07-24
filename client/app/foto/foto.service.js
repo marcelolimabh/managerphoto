@@ -23,10 +23,11 @@ var FotoService = (function () {
     };
     FotoService.prototype.cadastra = function (foto) {
         if (foto._id) {
-            return this.http.put(this.url + '/' + foto._id, JSON.stringify(foto), { headers: this.headers });
+            return this.http.put(this.url + '/' + foto._id, JSON.stringify(foto), { headers: this.headers }).map(function () { return ({ mensagem: 'Foto alterada com sucesso', inclusao: false }); });
+            ;
         }
         else {
-            return this.http.post(this.url, JSON.stringify(foto), { headers: this.headers });
+            return this.http.post(this.url, JSON.stringify(foto), { headers: this.headers }).map(function () { return ({ mensagem: 'Foto incluída com sucesso', inclusao: true }); });
         }
     };
     FotoService.prototype.remove = function (foto) {

@@ -47,12 +47,16 @@ var CadastroComponent = (function () {
         var _this = this;
         event.preventDefault();
         console.log(this.foto);
-        this.service.cadastra(this.foto).subscribe(function () {
+        this.service.cadastra(this.foto).subscribe(function (res) {
+            _this.mensagem = res.mensagem;
             _this.foto = new foto_component_1.FotoComponent();
             console.log('Foto salva com sucessso!');
-            _this.mensagem = 'Foto salva com sucesso!';
-            // this.router.navigate(['']);
-        }, function (erro) { return console.log(erro); });
+            if (!res.inclusao)
+                _this.router.navigate(['']);
+        }, function (erro) {
+            console.log(erro);
+            _this.mensagem = 'Erro ao cadastrar uma foto!';
+        });
     };
     CadastroComponent = __decorate([
         core_1.Component({

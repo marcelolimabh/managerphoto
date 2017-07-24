@@ -69,13 +69,16 @@ export class CadastroComponent {
        
 
         
-            this.service.cadastra(this.foto).subscribe(() => {
+            this.service.cadastra(this.foto).subscribe((res) => {
+                 this.mensagem = res.mensagem;
                 this.foto = new FotoComponent();
                 console.log('Foto salva com sucessso!');
-                this.mensagem = 'Foto salva com sucesso!';
-               // this.router.navigate(['']);
-
-            }, erro => console.log(erro));
+                if(!res.inclusao) this.router.navigate(['']);
+              
+            }, erro => {
+                console.log(erro);
+                this.mensagem = 'Erro ao cadastrar uma foto!'
+             })
     }
 
 }
