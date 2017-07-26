@@ -11,6 +11,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
 var foto_module_1 = require("./foto/foto.module");
 var painel_module_1 = require("./painel/painel.module");
+var modal_module_1 = require("./modal/modal.module");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 var cadastro_component_1 = require("./cadastro/cadastro.component");
@@ -28,7 +29,7 @@ var AppModule = (function () {
                 http_1.HttpModule,
                 painel_module_1.PainelModule,
                 app_routes_1.routing,
-                forms_1.FormsModule, forms_1.ReactiveFormsModule, botao_module_1.BotaoModule],
+                forms_1.FormsModule, forms_1.ReactiveFormsModule, botao_module_1.BotaoModule, modal_module_1.ModalModule],
             declarations: [app_component_1.AppComponent, cadastro_component_1.CadastroComponent, listagem_component_1.ListagemComponent],
             bootstrap: [app_component_1.AppComponent]
         })

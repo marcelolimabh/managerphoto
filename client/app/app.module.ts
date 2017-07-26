@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }   from './app.component';
 import { FotoModule }    from './foto/foto.module';
 import { PainelModule } from './painel/painel.module';
+import { ModalModule } from './modal/modal.module';
 
 
 import { HttpModule } from '@angular/http'
@@ -28,7 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
                   HttpModule, 
                   PainelModule, 
                   routing, 
-                  FormsModule, ReactiveFormsModule, BotaoModule ],
+                  FormsModule, ReactiveFormsModule, BotaoModule, ModalModule ],
   declarations: [ AppComponent, CadastroComponent, ListagemComponent ],
   bootstrap:    [ AppComponent ]
 })

@@ -23,7 +23,7 @@ export class ListagemComponent {
 
 
     }
-
+ 
     remove(foto: FotoComponent, painel: PainelComponent) {
         console.log('Vai chamar o servico');
         this.service.remove(foto)
